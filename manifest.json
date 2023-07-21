@@ -2,6 +2,7 @@
     "manifest_version": 3,
 	"version": "1.0",
     "name": "dont recommend video",
+	"description": "Removes recommend videos from Youtube",
 	"web_accessible_resources": [{ 
   		"resources": ["index.js"],
   		"matches": ["*://*.youtube.com/*"]
