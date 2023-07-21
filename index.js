@@ -1,24 +1,24 @@
-const del_main = () => {
-    setInterval(() => {
-        const kor_trends = document.querySelector('ytd-rich-grid-renderer[class="style-scope ytd-two-column-browse-results-renderer"]')
-        if (kor_trends) {
-            kor_trends.remove()
-        }
+const Del_Main = () => {
+  const observer = new MutationObserver(() => {
+    const Main_Video = document.querySelector('ytd-rich-grid-renderer[class="style-scope ytd-two-column-browse-results-renderer"]');
+    if (Main_Video) {
+      Main_Video.remove();
     }
-    , 1);
-}
-
-const del_content = () => {
-    setInterval(() => {
-        const eng_trends = document.querySelector('div[id="secondary-inner"]')
-        if (eng_trends) {
-            eng_trends.remove()
-        }
-    }
-    , 1);
-}
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+};
+  
+const Del_Content = () => {
+  const observer = new MutationObserver(() => {
+      const Content_Video = document.querySelector('div[id="secondary-inner"]');
+      if (Content_Video) {
+          Content_Video.remove();
+      }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+};
 
 window.onload = function(){
-    del_main();
-    del_content();
+  Del_Main();
+  Del_Content();
 };
